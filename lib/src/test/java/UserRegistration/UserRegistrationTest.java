@@ -56,5 +56,28 @@ UserRegistration userRegistration = new UserRegistration();
 	        boolean result = userRegistration.validateEmailid("abc.syz@bl.co.in");
 	        Assert.assertTrue(result);
 	    }
+	  @Test
+	    public void givenMobileNum_WhenSpaceIsMentioned_ShouldReturnTrue(){
+	        boolean result = userRegistration.validateMobileNum("91 9993588735");
+	        Assert.assertTrue(result);
+	    }
+	    @Test
+	    public void givenMobileNum_WhenSpaceNotMentioned_ShouldReturnFalse() {
+	        boolean result = userRegistration.validateMobileNum("919993588735");
+	        Assert.assertFalse(result);
+	    }
+
+	    @Test
+	    public void givenMobileNum_WhenLessDigits_ShouldReturnFalse() {
+	        boolean result = userRegistration.validateMobileNum("9967483421");
+	        Assert.assertFalse(result);
+	    }
+
+	    @Test
+	    public void givenMobileNum_WhenNotStartWith91_ShouldReturnFalse() {
+	        boolean result = userRegistration.validateMobileNum("1245437234");
+	        Assert.assertFalse(result);
+	    }
+
 
 }
