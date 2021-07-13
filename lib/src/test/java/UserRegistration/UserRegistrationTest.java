@@ -51,5 +51,10 @@ UserRegistration userRegistration = new UserRegistration();
 	      boolean result = userRegistration.validateFirstName("Ch@ndre");
 	      Assert.assertFalse(result);
 	  }
+	  @Test
+	    public void givenEmailId_WhenProper_ShouldReturnTrue(){
+	        boolean result = userRegistration.validateEmailid("abc.syz@bl.co.in");
+	        Assert.assertTrue(result);
+	    }
 
 }
