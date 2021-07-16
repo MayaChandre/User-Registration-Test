@@ -1,6 +1,5 @@
 package UserRegistration;
 
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,13 +10,13 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class ValidateEmailId {
+public class ValidateEmailIdTest {
 	
 		private UserRegistration userRegistration;
 		private boolean expectedResult;
 		private String emailId;
 
-		public ValidateEmailId(String emailId, boolean expectedResult) {
+		public ValidateEmailIdTest(String emailId, boolean expectedResult) {
 			super();
 			this.expectedResult = expectedResult;
 			this.emailId = emailId;
@@ -39,9 +38,14 @@ public class ValidateEmailId {
 					{ "abc.@gmail.com", false }, { "abc@abc@gmail.com", false }, { "abc@gmail.com.1a", false },
 					{ "abc@gmail.com.aa.au", false } });
 		}
+		
 		@Test
 		public void givenEmailIds_WhenProper_ShouldReturnExpectedResult() {
-			boolean result = userRegistration.validateEmailid(emailId);
-			Assert.assertEquals(this.expectedResult, userRegistration.validateEmailid(emailId));
+			boolean result = userRegistration.validateEmailId(emailId);
+			Assert.assertEquals(this.expectedResult, userRegistration.validateEmailId(emailId));
 		}
+		
 }
+}
+
+
