@@ -41,11 +41,21 @@ public class ValidateEmailIdTest {
 		
 		@Test
 		public void givenEmailIds_WhenProper_ShouldReturnExpectedResult() {
-			boolean result = userRegistration.validateEmailId(emailId);
-			Assert.assertEquals(this.expectedResult, userRegistration.validateEmailId(emailId));
+			try {
+				userRegistration.validateEmailId(emailId);
+			} catch (UserRegistrationException e) 
+			{
+				e.printStackTrace();
+			}
+			try {
+				Assert.assertEquals(this.expectedResult, userRegistration.validateEmailId(emailId));
+			} catch (UserRegistrationException e) 
+			{
+				e.printStackTrace();
+			}
 		}
 		
-}
+
 }
 
 
